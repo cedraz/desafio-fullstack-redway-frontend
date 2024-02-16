@@ -12,15 +12,15 @@ import Button from '@/components/Button'
 import Input from '@/components/Input'
 
 // React-hook-form
-import { useForm, SubmitHandler, Controller } from 'react-hook-form'
+import { useForm, SubmitHandler } from 'react-hook-form'
 
 type Inputs = {
     email: string
 }
 
 export default function Home() {
-    // const [message, setMessage] = React.useState('')
-    // const [email, setEmail] = React.useState('')
+    const [message, setMessage] = React.useState('')
+    const [email, setEmail] = React.useState('')
 
     const {
         register,
@@ -30,22 +30,22 @@ export default function Home() {
     const onSubmit: SubmitHandler<Inputs> = async (data: Inputs) => {
         console.log(data)
        
-        // try {
-        //     const response = await registerEmail(data.email)
-        //     const email = await response.json()
+        try {
+            const response = await registerEmail(data.email)
+            const email = await response.json()
 
-        //     if (email.message && email.message === 'Email registered') {
-        //         setMessage(email.message)
-        //         setEmail(email.email)
-        //         toast.success('Email registered')
-        //     } else {
-        //         setEmail(email.message)
-        //         setEmail('')
-        //         toast.error('Email not registered')
-        //     }
-        // } catch (error) {
-        //     console.error(error)
-        // }
+            if (email.message && email.message === 'Email registered') {
+                setMessage(email.message)
+                setEmail(email.email)
+                toast.success('Email registered')
+            } else {
+                setEmail(email.message)
+                setEmail('')
+                toast.error('Email not registered')
+            }
+        } catch (error) {
+            console.error(error)
+        }
     }
 
     return (
@@ -62,12 +62,12 @@ export default function Home() {
                         Registrar e-mail
                     </Button>
                 </form>
-                {/* <p>
+                <p>
                     {message}
                 </p>
                 <div>
                     {email}
-                </div> */}
+                </div>
             </div>  
         </main>
     )
