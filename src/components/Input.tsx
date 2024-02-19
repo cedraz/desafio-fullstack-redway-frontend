@@ -7,7 +7,8 @@ function Input(props: InputProps, ref: React.Ref<HTMLInputElement>) {
     return (
         <input
             ref={ref}
-            className='max-w-fit bg-slate-800 border-2 border-rose-700 rounded-lg px-2 py-1 text-white'
+            type='text'
+            className='block w-full p-4 text-gray-900 border-none rounded-md bg-white text-base focus:border-red-300 outline-none drop-shadow-md'
             {...props}
         />
     )

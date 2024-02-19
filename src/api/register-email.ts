@@ -1,13 +1,8 @@
+import axios from 'axios'
+
 const url = 'http://localhost:3333'
 
 export async function registerEmail(email: string) {
-    const response = await fetch(`${url}/emails`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ email })
-    })
-
+    const response = await axios.post(`${url}/emails`, { email })
     return response
 }
