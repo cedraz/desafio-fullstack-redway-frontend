@@ -30,8 +30,6 @@ export default function Home() {
         try {
             const response = await registerEmail(data.email)
 
-            const { email } = response.data
-
             toast.success('E-mail registrado com sucesso!')
 
         } catch (error: unknown) {

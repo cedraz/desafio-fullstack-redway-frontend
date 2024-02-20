@@ -1,17 +1,59 @@
-## Setup
+# Setup
 
-Para rodar o front-end do projeto é necessário instalar as dependências, para isso executa o seguinte comando:
+Para rodar o projeto, siga os passos abaixo:
 
-```bash
-npm install
-# ou
-npm i
+## Docker
+
+Primeiro de tudo instale o Docker e o Docker Compose
+
+Caso esteja utilizando ubuntu, é necessário adicionar o sudo antes de qualquer comando envolvendo o docker, exemplo:
+
+`sudo docker ...`
+
+para criar o container, execute o comando:
+
+```sh
+docker compose up
 ```
 
-Para rodar o projeto em ambiente de desenvolvimento, execute o seguinte comando:
+Caso não deseje que os logs da aplicação apareçam utilize a flag "-d", ela serve para rodar o container em modo "detached", ou seja, em segundo plano, sem mostrar os logs no terminal.
 
-```bash
-npm run start:dev
+Para acessar a site, acesse o link abaixo:
+
+http://localhost:3000
+
+<br/>
+
+-------
+
+para checar todos os containers criados:
+
+```sh
+docker ps -a
+```
+
+para checar os containers que estão rodando:
+
+```sh
+docker ps
+```
+
+para rodar o container:
+
+```sh
+docker compose start api-redway-pg
+```
+
+caso queira parar o container:
+
+```sh
+docker compose stop
+```
+
+caso queira remover o container:
+
+```sh
+docker compose down
 ```
 
 ## Configuração do ESlint
